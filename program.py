@@ -53,13 +53,13 @@ class Application(QWidget):
         sender_=self.sender()
         try:
             if sender_.text()=="Test 1":
-                print("Test 1...")
+                QMessageBox.about(self,"Test message","Test 1 will start in a moment...")
             if sender_.text()=="Test 2":
-                print("Test 2...")
+                QMessageBox.about(self,"Test message","Test 2 will start in a moment...")
             if sender_.text()=="Test 3":
-                print("Test 3...")
+                QMessageBox.about(self,"Test message","Test 3 will start in a moment...")
             if sender_.text()=="Test 4":
-                print("Test 4...")
+                QMessageBox.about(self,"Test message","Test 4 will start in a moment...")
             else:
                 pass
 
