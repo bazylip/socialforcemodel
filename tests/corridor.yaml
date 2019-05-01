@@ -2,7 +2,8 @@ world_height: 5
 world_width: 30
 step_size: 0.02
 groups:
-    -   spawn_rate: 2
+    -   num_pedestrians: 4
+        spawn_rate: 2
         spawn_area:
             start:
                 x: -1.0
