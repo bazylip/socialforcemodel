@@ -33,6 +33,10 @@ class Application(QWidget):
 
         self.setLayout(gridLayout)
 
+        buttonTest1.clicked.connect(self.action)
+        buttonTest2.clicked.connect(self.action)
+        buttonTest3.clicked.connect(self.action)
+        buttonTest4.clicked.connect(self.action)
         buttonExit.clicked.connect(self.closeApp)
 
         self.setGeometry(500,500,1000,100)
@@ -43,6 +47,24 @@ class Application(QWidget):
 
     def closeApp(self):
         self.close()
+
+
+    def action(self):
+        sender_=self.sender()
+        try:
+            if sender_.text()=="Test 1":
+                print("Test 1...")
+            if sender_.text()=="Test 2":
+                print("Test 2...")
+            if sender_.text()=="Test 3":
+                print("Test 3...")
+            if sender_.text()=="Test 4":
+                print("Test 4...")
+            else:
+                pass
+
+        except ValueError:
+            QMessageBox.warning(self,"Error",QMessageBox.Ok)
 
 
     def closeEvent(self,event):
@@ -56,6 +78,7 @@ class Application(QWidget):
             event.accept()
         else:
             event.ignore()
+
 
     def keyPressEvent(self,e):
         if e.key()==Qt.Key_Escape:
