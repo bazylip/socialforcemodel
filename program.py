@@ -4,6 +4,20 @@ from PyQt5.QtWidgets import QLineEdit, QPushButton, QHBoxLayout
 from PyQt5.QtWidgets import QMessageBox
 from PyQt5.QtCore import Qt
 from PyQt5.QtGui import QIcon
+from PyQt5.QtWidgets import QMainWindow,QToolTip
+from PyQt5.QtGui import QPixmap
+
+class WindowTest1(QMainWindow):
+    def __init__(self):
+        super().__init__()
+        self.setGeometry(250,300,1364,213)
+        self.setWindowIcon(QIcon('test.png'))
+        label=QLabel(self)
+        pixmap=QPixmap("./testimo1/0.png")
+        label.resize(pixmap.width(),pixmap.height())
+        label.setPixmap(pixmap)
+        self.setWindowTitle("Test 1")
+
 
 
 class Application(QWidget):
@@ -44,6 +58,11 @@ class Application(QWidget):
         self.setWindowTitle("Model testing")
         self.show()
 
+    def windowTest1(self):
+        self.w=WindowTest1()
+        self.w.show()
+        self.hide()
+
 
     def closeApp(self):
         self.close()
@@ -54,6 +73,7 @@ class Application(QWidget):
         try:
             if sender_.text()=="Test 1":
                 QMessageBox.about(self,"Test message","Test 1 will start in a moment...")
+                self.windowTest1()
             if sender_.text()=="Test 2":
                 QMessageBox.about(self,"Test message","Test 2 will start in a moment...")
             if sender_.text()=="Test 3":
