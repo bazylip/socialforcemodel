@@ -4,12 +4,10 @@ import socialforcemodel as sfm
 import numpy as np
 import matplotlib.pyplot as plt
 
-def average_position(world):
-    positions = []
+def single_position(world):
     for group in world.groups:
         for p in group.pedestrians:
-            positions.append(p.position)
-    return np.mean(positions)
+            return p.position[0]
 
 def average_speed(world):
     velocities = []
@@ -30,7 +28,7 @@ def main(args):
     world = loader.world
     world.update()
 
-    world.add_measurement(average_position)
+    world.add_measurement(single_position)
 
     figure = world.plot()
     figure.savefig("img/0.png",
@@ -44,7 +42,7 @@ def main(args):
         if not world.step():
             break
         world.update()
-        if step % 5 == 4:
+        if step % (args.steps / 10) == (args.steps / 10) - 1:
             figure = world.plot()
             figure.savefig("img/" + str((step + 1)/5) + ".png",
                            bbox_inches = 'tight',
