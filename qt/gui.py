@@ -50,7 +50,7 @@ class Application(QWidget):
         buttonExit.clicked.connect(self.closeApp)
 
         self.setGeometry(500,500,1000,100)
-        self.setWindowIcon(QIcon('test.png'))
+        self.setWindowIcon(QIcon('qt/test.png'))
         self.setWindowTitle("Model testing")
         self.show()
 
