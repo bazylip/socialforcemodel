@@ -25,7 +25,14 @@ def simulate(testNum, repetition):
 class Tester:
     def __init__(self, testNum):
         self.testNum = testNum
-
+    
     def run(self):
+        self.sim()
+        self.check()
+
+    def sim(self):
         p = Pool(5)
         p.starmap(simulate, [(self.testNum, 1), (self.testNum, 2), (self.testNum, 3), (self.testNum, 4), (self.testNum, 5)]) 
+
+    def check(self):
+        return
