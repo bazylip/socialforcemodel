@@ -19,8 +19,8 @@ class WindowTest1(QMainWindow):
         label.setPixmap(pixmap)
         self.setWindowTitle("Test 1")
         tester = Tester(1)
-        tester.run()
-
+        results = tester.run()
+        
 
 class Application(QWidget):
     def __init__(self,parent=None):
