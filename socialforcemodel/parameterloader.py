@@ -144,7 +144,7 @@ class ParameterLoader(object):
             if var in data:
                 kwargs[var] = data[var]
 
-        print(kwargs)
+        #print(kwargs)
 
         return Pedestrian(group, **kwargs)
 

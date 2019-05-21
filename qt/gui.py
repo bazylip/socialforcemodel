@@ -72,7 +72,7 @@ class Application(QWidget):
 
     def action(self):
         sender_=self.sender()
-        call("mkdir tmp; for i in 1 2 3 4 5 ; do mkdir tmp/img$i ; mkdir tmp/measurements$i ; done", shell=True)
+        call("mkdir -p tmp; for i in 1 2 3 4 5 ; do mkdir -p tmp/img$i ; mkdir -p tmp/measurements$i ; done", shell=True)
         try:
             if sender_.text()=="Test 1":
                 QMessageBox.about(self,"Test message","Test 1 will start in a moment...")
