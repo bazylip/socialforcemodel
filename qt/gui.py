@@ -3,6 +3,11 @@ from PyQt5.QtCore import Qt
 from PyQt5.QtGui import QIcon
 from PyQt5.QtGui import QPixmap
 
+from subprocess import call
+import sys, os
+sys.path.append(os.path.join(os.path.dirname(sys.path[0]),'testers'))
+from tester import Tester
+
 class WindowTest1(QMainWindow):
     def __init__(self):
         super().__init__()
@@ -13,7 +18,8 @@ class WindowTest1(QMainWindow):
         label.resize(pixmap.width(),pixmap.height())
         label.setPixmap(pixmap)
         self.setWindowTitle("Test 1")
-
+        tester = Tester(1)
+        tester.run()
 
 
 class Application(QWidget):
@@ -66,6 +72,7 @@ class Application(QWidget):
 
     def action(self):
         sender_=self.sender()
+        call("mkdir tmp; for i in 1 2 3 4 5 ; do mkdir tmp/img$i ; mkdir tmp/measurements$i ; done", shell=True)
         try:
             if sender_.text()=="Test 1":
                 QMessageBox.about(self,"Test message","Test 1 will start in a moment...")
@@ -78,7 +85,7 @@ class Application(QWidget):
                 QMessageBox.about(self,"Test message","Test 4 will start in a moment...")
             else:
                 pass
-
+        #call("rm -r tmp", shell=True)
         except ValueError:
             QMessageBox.warning(self,"Error",QMessageBox.Ok)
 

@@ -31,26 +31,26 @@ def main(args):
     world.add_measurement(single_position)
 
     figure = world.plot()
-    figure.savefig("img/0.png",
+    figure.savefig("tmp/img" + str(args.number) + "/0.png",
                    bbox_inches = 'tight',
                    pad_inches = 0.1)
     figure.clear()
     plt.close(figure)
 
     for step in range(args.steps):
-        print "Step {}".format(step + 1)
+        #print "Step {}".format(step + 1)
         if not world.step():
             break
         world.update()
         if step % (args.steps / 10) == (args.steps / 10) - 1:
             figure = world.plot()
-            figure.savefig("img/" + str((step + 1)/5) + ".png",
+            figure.savefig("tmp/img" + str(args.number) + "/" + str((step + 1)/(args.steps / 10)) + ".png",
                            bbox_inches = 'tight',
                            pad_inches = 0.1)
             figure.clear()
             plt.close(figure)
 
-    np.savetxt("measurements.txt", world.measurements)
+    np.savetxt("tmp/measurements" + str(args.number) + "/measurements.txt", world.measurements)
 
 if __name__ == '__main__':
     import argparse
@@ -58,5 +58,6 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('file', help='YAML-file')
     parser.add_argument('-s', '--steps', help='Number of steps', type=int, default=500)
+    parser.add_argument('-n', '--number', help='Number of test (1,2,3,4,5)', type=int)
     args = parser.parse_args(sys.argv[1:])
     main(args)
