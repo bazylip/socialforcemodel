@@ -4,7 +4,19 @@ import os
 import time
 
 def simulate(testNum, repetition):
-    command = './main.py tests/testimo' + str(testNum) + '.yaml -s 200 -n ' + str(repetition)
+    if testNum == 1:
+        command = './main.py tests/testimo' + str(testNum) + '.yaml -s 800 -n ' + str(repetition)
+    elif testNum == 2:
+        command = 'print "error"'
+    elif testNum == 3:
+        command = 'print "error"'
+    elif testNum == 4:
+        command = 'print "error"'
+    elif testNum == 5:
+        command = 'print "error"'
+    else:
+        command = 'print "error"'
+
     try:
         retcode = call(command, shell=True)
     except OSError as e:
@@ -16,5 +28,4 @@ class Tester:
 
     def run(self):
         p = Pool(5)
-        p.starmap(simulate, [(self.testNum, 1), (self.testNum, 2), (self.testNum, 3), (self.testNum, 4), (self.testNum, 5)])
-        
+        p.starmap(simulate, [(self.testNum, 1), (self.testNum, 2), (self.testNum, 3), (self.testNum, 4), (self.testNum, 5)]) 
