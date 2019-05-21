@@ -22,6 +22,10 @@ def simulate(testNum, repetition):
     except OSError as e:
         print("Failed:", e, file=sys.stderr)
 
+def checkResults(testNum, repetition):
+    #to do
+    return [True, True, True, True, True]
+
 class Tester:
     def __init__(self, testNum):
         self.testNum = testNum
@@ -35,4 +39,6 @@ class Tester:
         p.starmap(simulate, [(self.testNum, 1), (self.testNum, 2), (self.testNum, 3), (self.testNum, 4), (self.testNum, 5)]) 
 
     def check(self):
-        return [True, True, True, True, True]
+        p = Pool(5)
+        return p.starmap(checkResults, [(self.testNum, 1), (self.testNum, 2), (self.testNum, 3), (self.testNum, 4), (self.testNum, 5)]) 
+        

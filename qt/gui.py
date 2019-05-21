@@ -20,7 +20,7 @@ class WindowTest1(QMainWindow):
         self.setWindowTitle("Test 1")
         tester = Tester(1)
         results = tester.run()
-        
+                
 
 class Application(QWidget):
     def __init__(self,parent=None):
