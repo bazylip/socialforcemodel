@@ -1,0 +1,16 @@
+A test is suggested for the verification of the ability of models to simulate counter-flow. This test is a modified version of the IMO Test 8 and it is a verification of emergent behaviours concerning counter-flow.
+
+Geometry:
+Two rooms 10 m (wide and long) connected via a corridor 10 m long and 2 m wide starting and ending at the centre of one side of each room.
+
+Scenario:
+Choose a sub-population consisting of a population of 100 persons with response time equal to 0 s and distribute the walking speeds in accordance with the population of the building(s). Step 1: One hundred persons move from room 1 to room 2, where the initial distribution is such that the space of room 1 is filled from the left with maximum possible density. The time the last person enters room 2 is recorded. Step 2: Step one is repeated with an additional ten, fifty, and one hundred persons in room 2. These persons should have identical characteristics to those in room 1. Both sub-populations move simultaneously to the opposite room and the time for the last persons from room 1 to enter room 2 is recorded.
+
+Expected result:
+The expected result is that the recorded time increases as the number of persons in counter-flow increases.
+
+Test method:
+The test method is a qualitative evaluation of the capabilities of the model of reproducing horizontal counter-flows (counter-flows in rooms). Model results need to be compared and the differences (expressed in terms of evacuation times) between the steps of the test are presented.
+
+User actions:
+The model tester should qualitatively discuss the extent of the recorded time increases due to counter-flows.
