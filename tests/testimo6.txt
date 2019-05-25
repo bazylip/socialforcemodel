@@ -1,0 +1,16 @@
+One test is proposed to verify whether the model is able to correctly simulate the boundaries of a scenario. IMO Test 6 is the benchmark for this test, i.e., a test to verify that occupants successfully navigate around a corner.
+
+Geometry:
+A corner is represented by a space looking as a "L" letter being 12 m long, 12 m wide and 2 m thick.
+
+Scenario:
+Twenty persons are uniformly distributed in one end of the hallway (in a space measured 2 m by 4 m). They have immediate response times and a walking speed of 1 m/s.
+
+Expected result:
+The occupants are expected to successfully navigate around the corner without penetrating the boundaries.
+
+Test method:
+The test method is a qualitative verification of the occupant movement. The qualitative analysis is performed by observing the travel path walked by the occupants. If possible, this evaluation can be performed using the visualization tool of the model or tracking the coordinates of the paths of the agents.
+
+User actions:
+It should be noted that the current test of movement around a corner is intended only as a verification of the boundaries available in the scenario, i.e. no evaluation of the expected pattern in the corner is made (i.e. the current test is not a verification of emergent behaviours). When the literature on human behaviour in fire is able to provide a detailed understanding of the expected movement patterns of people, model testers will need to include this in the test.
