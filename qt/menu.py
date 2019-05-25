@@ -1,7 +1,10 @@
 import sys
 from PyQt5.QtWidgets import QMainWindow, QApplication, QWidget, QPushButton, QAction, QMessageBox
 from PyQt5.QtGui import QIcon
-from testers.tester import Tester
+import os
+sys.path.append(os.path.join(os.path.dirname(sys.path[0]),'testers'))
+from tester import Tester
+
 
 class App(QMainWindow):
 
