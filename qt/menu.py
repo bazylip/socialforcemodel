@@ -33,7 +33,8 @@ class App(QMainWindow):
         action1.triggered.connect(lambda: self.fileContent("tests/testimo1.txt","1"))
         action1a=test1.addAction("Run test")
         action1a.setShortcut("CTRL+SHIFT+1")
-        action1a.triggered.connect(lambda: Tester.run(1))
+        t=Tester(1)
+        action1a.triggered.connect(lambda: t.run())
 
         test4 = menu.addMenu('Test 4')
         action4 = test4.addAction("View description")
