@@ -1,0 +1,229 @@
+world_height: 15
+world_width: 22
+step_size: 0.05
+groups:
+    -   num_pedestrians: 2
+        spawn_area:
+            start:
+                x: 3.0
+                y: 11.0
+            end:
+                x: 4.0
+                y: 10.0
+        target_area:
+            start:
+            -   x: 4
+                y: 7
+            end:
+            -   x: 4
+                y: 7
+
+        desired_velocity: 1.0
+        maximum_velocity: 1.0
+
+obstacles:
+    -   points:
+            -   x: 2.0
+                y: 2.0
+            -   x: 20.0
+                y: 2.0
+    -   points:
+            -   x: 2.0
+                y: 2.0
+            -   x: 2.0
+                y: 13.0
+    -   points:
+            -   x: 2.0
+                y: 13.0
+            -   x: 8.0
+                y: 13.0
+    -   points:
+            -   x: 9.0
+                y: 13.0
+            -   x: 20.0
+                y: 13.0
+    -   points:
+            -   x: 20.0
+                y: 13.0
+            -   x: 20.0
+                y: 8.0
+    -   points:
+            -   x: 20.0
+                y: 7.0
+            -   x: 20.0
+                y: 2.0
+    -   points:
+            -   x: 2.0
+                y: 8.0
+            -   x: 3.0
+                y: 8.0
+    -   points:
+            -   x: 4.0
+                y: 8.0
+            -   x: 5.0
+                y: 8.0
+    -   points:
+            -   x: 5.0
+                y: 8.0
+            -   x: 5.0
+                y: 13.0
+    -   points:
+            -   x: 5.0
+                y: 8.0
+            -   x: 6.0
+                y: 8.0
+    -   points:
+            -   x: 7.0
+                y: 8.0
+            -   x: 8.0
+                y: 8.0
+    -   points:
+            -   x: 8.0
+                y: 8.0
+            -   x: 8.0
+                y: 13.0
+    -   points:
+            -   x: 9.0
+                y: 8.0
+            -   x: 9.0
+                y: 13.0
+    -   points:
+            -   x: 9.0
+                y: 8.0
+            -   x: 9.5
+                y: 8.0
+    -   points:
+            -   x: 10.5
+                y: 8.0
+            -   x: 11.0
+                y: 8.0
+    -   points:
+            -   x: 11.0
+                y: 8.0
+            -   x: 11.0
+                y: 13.0
+    -   points:
+            -   x: 11.0
+                y: 8.0
+            -   x: 12.0
+                y: 8.0
+    -   points:
+            -   x: 13.0
+                y: 8.0
+            -   x: 14.0
+                y: 8.0
+    -   points:
+            -   x: 14.0
+                y: 8.0
+            -   x: 14.0
+                y: 13.0
+    -   points:
+            -   x: 14.0
+                y: 8.0
+            -   x: 15.0
+                y: 8.0
+    -   points:
+            -   x: 16.0
+                y: 8.0
+            -   x: 17.0
+                y: 8.0
+    -   points:
+            -   x: 17.0
+                y: 8.0
+            -   x: 17.0
+                y: 13.0
+    -   points:
+            -   x: 17.0
+                y: 8.0
+            -   x: 18.0
+                y: 8.0
+    -   points:
+            -   x: 19.0
+                y: 8.0
+            -   x: 20.0
+                y: 8.0
+    -   points:
+            -   x: 2.0
+                y: 7.0
+            -   x: 3.0
+                y: 7.0
+    -   points:
+            -   x: 4.0
+                y: 7.0
+            -   x: 5.0
+                y: 7.0
+    -   points:
+            -   x: 5.0
+                y: 7.0
+            -   x: 5.0
+                y: 2.0
+    -   points:
+            -   x: 5.0
+                y: 7.0
+            -   x: 6.0
+                y: 7.0
+    -   points:
+            -   x: 7.0
+                y: 7.0
+            -   x: 8.0
+                y: 7.0
+    -   points:
+            -   x: 8.0
+                y: 7.0
+            -   x: 8.0
+                y: 2.0
+    -   points:
+            -   x: 8.0
+                y: 7.0
+            -   x: 9.0
+                y: 7.0
+    -   points:
+            -   x: 10.0
+                y: 7.0
+            -   x: 11.0
+                y: 7.0
+    -   points:
+            -   x: 11.0
+                y: 7.0
+            -   x: 11.0
+                y: 2.0
+    -   points:
+            -   x: 11.0
+                y: 7.0
+            -   x: 12.0
+                y: 7.0
+    -   points:
+            -   x: 13.0
+                y: 7.0
+            -   x: 14.0
+                y: 7.0
+    -   points:
+            -   x: 14.0
+                y: 7.0
+            -   x: 14.0
+                y: 2.0
+    -   points:
+            -   x: 14.0
+                y: 7.0
+            -   x: 15.0
+                y: 7.0
+    -   points:
+            -   x: 16.0
+                y: 7.0
+            -   x: 17.0
+                y: 7.0
+    -   points:
+            -   x: 17.0
+                y: 7.0
+            -   x: 17.0
+                y: 2.0
+    -   points:
+            -   x: 17.0
+                y: 7.0
+            -   x: 18.0
+                y: 7.0
+    -   points:
+            -   x: 19.0
+                y: 7.0
+            -   x: 20.0
+                y: 7.0
