@@ -33,8 +33,8 @@ class App(QMainWindow):
         action1.triggered.connect(lambda: self.fileContent("tests/testimo1.txt","1"))
         action1a=test1.addAction("Run test")
         action1a.setShortcut("CTRL+SHIFT+1")
-        t=Tester(1)
-        action1a.triggered.connect(lambda: t.run())
+        t1=Tester(1)
+        action1a.triggered.connect(lambda: t1.run())
 
         test4 = menu.addMenu('Test 4')
         action4 = test4.addAction("View description")
@@ -42,7 +42,8 @@ class App(QMainWindow):
         action4.triggered.connect(lambda: self.fileContent("tests/testimo4.txt","4"))
         action2a=test4.addAction("Run test")
         action2a.setShortcut("CTRL+SHIFT+2")
-        action2a.triggered.connect(lambda: Tester.run(2))
+        t4=Tester(2)
+        action2a.triggered.connect(lambda: t4.run())
 
         test6= menu.addMenu('Test 6')
         action6 = test6.addAction("View description")
@@ -50,7 +51,8 @@ class App(QMainWindow):
         action6.triggered.connect(lambda: self.fileContent("tests/testimo6.txt","6"))
         action3a=test6.addAction("Run test")
         action3a.setShortcut("CTRL+SHIFT+3")
-        action3a.triggered.connect(lambda: Tester.run(3))
+        t6=Tester(3)
+        action3a.triggered.connect(lambda: t6.run())
 
         test8 = menu.addMenu('Test 8')
         action8 = test8.addAction("View description")
@@ -58,7 +60,8 @@ class App(QMainWindow):
         action8.triggered.connect(lambda: self.fileContent("tests/testimo8.txt","8"))
         action4a=test8.addAction("Run test")
         action4a.setShortcut("CTRL+SHIFT+4")
-        action4a.triggered.connect(lambda: Tester.run(4))
+        t8=Tester(4)
+        action4a.triggered.connect(lambda: t8.run())
 
         test10 = menu.addMenu('Test10')
         action10 = test10.addAction("View description")
@@ -66,7 +69,8 @@ class App(QMainWindow):
         action10.triggered.connect(lambda: self.fileContent("tests/testimo10.txt","10"))
         action5a=test10.addAction("Run test")
         action5a.setShortcut("CTRL+SHIFT+5")
-        action5a.triggered.connect(lambda: Tester.run(5))
+        t10=Tester(5)
+        action5a.triggered.connect(lambda: t10.run())
 
         self.show()
 
