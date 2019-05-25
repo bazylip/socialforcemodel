@@ -1,6 +1,7 @@
 import sys
 from PyQt5.QtWidgets import QMainWindow, QApplication, QWidget, QPushButton, QAction, QMessageBox
 from PyQt5.QtGui import QIcon
+from testers.tester import Tester
 
 class App(QMainWindow):
 
@@ -30,26 +31,41 @@ class App(QMainWindow):
         action1=test1.addAction("View description")
         action1.setShortcut("CTRL+1")
         action1.triggered.connect(lambda: self.fileContent("tests/testimo1.txt","1"))
+        action1a=test1.addAction("Run test")
+        action1a.setShortcut("CTRL+SHIFT+1")
+        action1a.triggered.connect(lambda: Tester.run(1))
 
         test4 = menu.addMenu('Test 4')
         action4 = test4.addAction("View description")
         action4.setShortcut("CTRL+2")
         action4.triggered.connect(lambda: self.fileContent("tests/testimo4.txt","4"))
+        action2a=test4.addAction("Run test")
+        action2a.setShortcut("CTRL+SHIFT+2")
+        action2a.triggered.connect(lambda: Tester.run(2))
 
         test6= menu.addMenu('Test 6')
         action6 = test6.addAction("View description")
         action6.setShortcut("CTRL+3")
         action6.triggered.connect(lambda: self.fileContent("tests/testimo6.txt","6"))
+        action3a=test6.addAction("Run test")
+        action3a.setShortcut("CTRL+SHIFT+3")
+        action3a.triggered.connect(lambda: Tester.run(3))
 
         test8 = menu.addMenu('Test 8')
         action8 = test8.addAction("View description")
         action8.setShortcut("CTRL+4")
         action8.triggered.connect(lambda: self.fileContent("tests/testimo8.txt","8"))
+        action4a=test8.addAction("Run test")
+        action4a.setShortcut("CTRL+SHIFT+4")
+        action4a.triggered.connect(lambda: Tester.run(4))
 
         test10 = menu.addMenu('Test10')
         action10 = test10.addAction("View description")
         action10.setShortcut("CTRL+5")
         action10.triggered.connect(lambda: self.fileContent("tests/testimo10.txt","10"))
+        action5a=test10.addAction("Run test")
+        action5a.setShortcut("CTRL+SHIFT+5")
+        action5a.triggered.connect(lambda: Tester.run(5))
 
         self.show()
 
