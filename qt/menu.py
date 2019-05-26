@@ -3,10 +3,12 @@ from PyQt5.QtWidgets import QMainWindow, QApplication, QWidget, QPushButton, QAc
 from PyQt5.QtGui import QIcon
 
 import os
-sys.path.append(os.path.join(os.path.dirname(sys.path[0]),'testers'))
-
-
-from testers.tester import Tester
+import platform
+if platform.system() == 'Linux':
+    sys.path.append(os.path.join(os.path.dirname(sys.path[0]),'testers'))
+    from tester import Tester
+else:
+    from testers.tester import Tester
 from PyQt5.QtGui import QPixmap
 
 
