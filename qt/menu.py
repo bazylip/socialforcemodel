@@ -1,18 +1,17 @@
-import sys
-from PyQt5.QtWidgets import QMainWindow, QApplication, QWidget, QPushButton, QAction, QMessageBox, QLabel
+import sys, os
+from PyQt5.QtWidgets import QMainWindow, QApplication, QWidget, QPushButton, QAction, QMessageBox, QLabel, QVBoxLayout
 from PyQt5.QtGui import QIcon
-
-import os
+from testers.tester import Tester
+from PyQt5.QtGui import QPixmap
+from qt.p import App
 import platform
 if platform.system() == 'Linux':
     sys.path.append(os.path.join(os.path.dirname(sys.path[0]),'testers'))
     from tester import Tester
 else:
     from testers.tester import Tester
-from PyQt5.QtGui import QPixmap
 
-
-class App(QMainWindow):
+class Application(QMainWindow):
 
     def __init__(self):
         super().__init__()
@@ -56,6 +55,9 @@ class App(QMainWindow):
         action2a.setShortcut("CTRL+SHIFT+2")
         t4 = Tester(2)
         action2a.triggered.connect(lambda: t4.run())
+        action2b = test4.addAction("View simulation")
+        action2b.setShortcut("CTRL+F2")
+        action2b.triggered.connect(lambda: self.windowTest())
 
         test6 = menu.addMenu('Test 6')
         action6 = test6.addAction("View description")
@@ -65,6 +67,9 @@ class App(QMainWindow):
         action3a.setShortcut("CTRL+SHIFT+3")
         t6 = Tester(3)
         action3a.triggered.connect(lambda: t6.run())
+        action3b = test6.addAction("View simulation")
+        action3b.setShortcut("CTRL+F3")
+        action3b.triggered.connect(lambda: self.windowTest())
 
         test8 = menu.addMenu('Test 8')
         action8 = test8.addAction("View description")
@@ -74,6 +79,9 @@ class App(QMainWindow):
         action4a.setShortcut("CTRL+SHIFT+4")
         t8 = Tester(4)
         action4a.triggered.connect(lambda: t8.run())
+        action4b = test8.addAction("View simulation")
+        action4b.setShortcut("CTRL+F4")
+        action4b.triggered.connect(lambda: self.windowTest())
 
         test10 = menu.addMenu('Test10')
         action10 = test10.addAction("View description")
@@ -83,6 +91,9 @@ class App(QMainWindow):
         action5a.setShortcut("CTRL+SHIFT+5")
         t10 = Tester(5)
         action5a.triggered.connect(lambda: t10.run())
+        action5b = test10.addAction("View simulation")
+        action5b.setShortcut("CTRL+F5")
+        action5b.triggered.connect(lambda: self.windowTest())
 
         self.show()
 
@@ -112,24 +123,11 @@ class App(QMainWindow):
             self.close()
 
     def windowTest(self):
-        self.w = WindowTest()
+        self.w = App()
         self.w.show()
-
-class WindowTest(QMainWindow):
-    def __init__(self):
-        super().__init__()
-        self.setWindowTitle("Simulation")
-        self.setGeometry(500, 500, 500, 400)
-        self.setWindowIcon(QIcon('test.png'))
-        label = QLabel(self)
-        pixmap = QPixmap("test.png")
-        label.setPixmap(pixmap)
-        label.resize(pixmap.width(), pixmap.height())
-
-
 
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
-    ex = App()
+    ex = Application()
     sys.exit(app.exec_())
