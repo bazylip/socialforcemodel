@@ -1,0 +1,16 @@
+A test is proposed to verify the simulation of an occupant maintaining an assigned walking speed over time. The test is based on IMO Test 1 from the IMO Guidelines.
+
+Geometry:
+A corridor 2 m wide and 40 m long.
+
+Scenario:
+One occupant with an assigned walking speed of 1 m/s walking along the corridor.
+
+Expected result:
+The occupant should cover the distance of the corridor in 40 s.
+
+Test method:
+It should be noted that the requirements for the number of runs may vary over different distributions. Different tests may be employed to demonstrate that the values belong to certain distributions. Model testers can demonstrate this with a suitable test in relation to the distribution(s) under consideration. The test method is a quantitative verification of model results, i.e., the difference between the expected result and the simulation results.
+
+User's actions:
+The effectiveness of this test can be improved by setting additional prescriptions in relation to the type of model under consideration. For example, in the case of models that use coarse and fine grids, results may be dependent on the configuration of the grid adopted. In the case of models using a fine grid, results may be affected by the rotation of the corridor in relation to the grid in use. The test should, therefore, be performed using at least two different rotations of the geometry (e.g., 0 degrees and 45 degrees). Considerations should also be made on the necessity (or not) to perform this test with different grid configurations (e.g. simulating the default cell size and a set of both reduced and increased cell sizes) in order to test the sensitivity of the results to cell size.

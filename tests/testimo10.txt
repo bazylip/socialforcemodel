@@ -1,0 +1,16 @@
+An exit route allocation is suggested in order to verify the deterministic assignment of exit usage. The test is based on IMO Test 10.
+
+Geometry:
+Construct a corridor section with rooms and two possible exit areas and assign each room to the proper one.
+
+Scenario:
+Populate the rooms with occupants having walking speeds and characteristics in accordance with the expected demographics of the population of the building(s). Distribute the walking speeds and response times equal to 0 s over a population of 23 persons. The persons in room 1, 2, 3, 4, 7, 8, 9, and 10 are allocated to the main exit. All the remaining passengers are allocated the secondary exit.
+
+Expected result:
+The allocated occupants move to the appropriate exits. If possible, this evaluation can be performed using the visualization tool of the model.
+
+Test method:
+The test method is a qualitative verification of model assignment, i.e. the ability of the model to represent exit route allocation.
+
+User actions:
+The tester needs to mention if the exit choice sub-model is based on deterministic assumptions or it is predictive in the documentation associated with the test where the results of the model are presented.

@@ -1,0 +1,35 @@
+world_height: 5
+world_width: 40
+step_size: 0.05
+groups:
+    -   num_pedestrians: 0
+        target_area:
+            start:
+                x: 40.0
+                y: 2.5
+            end:
+                x: 40.0
+                y: 2.5
+        target_path:
+            -   x: 0.0
+                y: 2.5
+            -   x: 40.0
+                y: 2.5
+        desired_velocity: 1.0
+        maximum_velocity: 1.0
+        pedestrians:
+            -   start:
+                    x: 0.0
+                    y: 2.5
+
+obstacles:
+    -   points:
+            -   x: 0.0
+                y: 1.5
+            -   x: 40.0
+                y: 1.5
+    -   points:
+            -   x: 0.0
+                y: 3.5
+            -   x: 40.0
+                y: 3.5

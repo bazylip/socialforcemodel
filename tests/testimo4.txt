@@ -1,0 +1,16 @@
+A test is suggested to set a conservative requirement of maximum admitted flow rates. This test is based on the IMO Test 4.
+
+Geometry:
+Construct a room of size 8 m by 5 m with a 1 m exit located centrally on the 5 m wall.
+
+Scenario:
+Place 100 occupants in the room and assign them to the exit.
+
+Expected result:
+The flow rate at the exit over the entire period should not exceed a pre-defined maximum threshold.
+
+Test method:
+The test method is a quantitative evaluation of model results, i.e. the comparison between the results produced by the model and the maximum flow rate.
+
+User actions:
+This test may also be susceptible to the type of grid/network in use in the case of fine and coarse network models. For this reason, the tester should demonstrate the sensitivity of the results in relation to a different discretization of the space. This test can be interpreted in two different ways. First, it is a verification tests if the model under consideration represents flows through doors using restricted flows. However, it can be instead intended as an external validation requirement if flows are emergent and the tester wants to ensure that a maximum flow rate is not exceeded. An example of the maximum flow rate is the value recommended by the MSC/Circ. 1238 (1.33 p/m/s).The model tester should document the assumptions adopted in the representation of the flows.
