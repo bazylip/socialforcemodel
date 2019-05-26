@@ -34,7 +34,7 @@ class App(QWidget):
         self.show()
 
     def showimage(self,imagenumber):
-        directory = "C:\\Users\\Kasia\\PycharmProjects\\socialforcemodel\\tmp\\imgNone"
+        directory = "" #sciezka do pliku
         imagelist = ["0.png","1.0.png","2.0.png","3.0.png","4.0.png","5.0.png","6.0.png","7.0.png","8.0.png","9.0.png","10.0.png"]
         pixmap = QPixmap(directory + '\\' + imagelist[imagenumber])
         self.label.setPixmap(pixmap)
