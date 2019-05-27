@@ -42,9 +42,9 @@ def main(args):
         if not world.step():
             break
         world.update()
-        if step % (args.steps / 10) == (args.steps / 10) - 1:
+        if step % (args.steps / 20) == (args.steps / 20) - 1:
             figure = world.plot()
-            figure.savefig("tmp/img" + str(args.number) + "/" + str((step + 1)/(args.steps / 10)) + ".png",
+            figure.savefig("tmp/img" + str(args.number) + "/" + str((step + 1)/(args.steps / 20)) + ".png",
                            bbox_inches = 'tight',
                            pad_inches = 0.1)
             figure.clear()
