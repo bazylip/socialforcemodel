@@ -53,7 +53,7 @@ class Application(QMainWindow):
         action4.triggered.connect(lambda: self.fileContent("tests/testimo4.txt","4"))
         action2a = test4.addAction("Run test")
         action2a.setShortcut("CTRL+SHIFT+2")
-        t4 = Tester(2)
+        t4 = Tester(4)
         action2a.triggered.connect(lambda: t4.run())
         action2b = test4.addAction("View simulation")
         action2b.setShortcut("CTRL+F2")
@@ -65,7 +65,7 @@ class Application(QMainWindow):
         action6.triggered.connect(lambda: self.fileContent("tests/testimo6.txt","6"))
         action3a = test6.addAction("Run test")
         action3a.setShortcut("CTRL+SHIFT+3")
-        t6 = Tester(3)
+        t6 = Tester(6)
         action3a.triggered.connect(lambda: t6.run())
         action3b = test6.addAction("View simulation")
         action3b.setShortcut("CTRL+F3")
@@ -77,7 +77,7 @@ class Application(QMainWindow):
         action8.triggered.connect(lambda: self.fileContent("tests/testimo8.txt","8"))
         action4a = test8.addAction("Run test")
         action4a.setShortcut("CTRL+SHIFT+4")
-        t8 = Tester(4)
+        t8 = Tester(8)
         action4a.triggered.connect(lambda: t8.run())
         action4b = test8.addAction("View simulation")
         action4b.setShortcut("CTRL+F4")
@@ -89,7 +89,7 @@ class Application(QMainWindow):
         action10.triggered.connect(lambda: self.fileContent("tests/testimo10.txt","10"))
         action5a = test10.addAction("Run test")
         action5a.setShortcut("CTRL+SHIFT+5")
-        t10 = Tester(5)
+        t10 = Tester(10)
         action5a.triggered.connect(lambda: t10.run())
         action5b = test10.addAction("View simulation")
         action5b.setShortcut("CTRL+F5")
@@ -118,9 +118,9 @@ class Application(QMainWindow):
         else:
             event.ignore()
 
-    def keyPressEvent(self, e):
-        if e.key() == Qt.Key_Escape:
-            self.close()
+    #def keyPressEvent(self, e):
+        #if e.key() == Qt.Key_Escape:
+        #    self.close()
 
     def windowTest(self):
         self.w = App()

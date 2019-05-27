@@ -23,8 +23,24 @@ def simulate(testNum, repetition):
         print("Failed:", e, file=sys.stderr)
 
 def checkResults(testNum, repetition):
-    #to do
-    return [True, True, True, True, True]
+    if testNum == 1:
+        measurements = open('tmp/measurements' + str(repetition) + '/measurements.txt', 'r')
+        count = 1
+        epsilon = 0.1
+        for position in measurements.read().split():
+            if count == 1:
+                
+                startPosition = position
+            elif count == 799:
+                nextToLastPosition = position
+            elif count == 800:
+                lastPosition = position
+        
+        if startPosition < epsilon and (endPosition - 40) < epsilon and (endPosition - nextToLastPosition) < epsilon:
+            return True
+        else:
+            return False
+        
 
 class Tester:
     def __init__(self, testNum):

@@ -5,7 +5,7 @@ from PyQt5.QtGui import QPixmap
 
 import sys
 sys.path.insert(0, './qt')
-from gui import Application
+from menu import Application
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
