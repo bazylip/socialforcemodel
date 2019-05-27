@@ -15,8 +15,6 @@ class App(QWidget):
         key=event.key()
         if key==Qt.Key_Right:
             self.imagenumber=self.imagenumber+1
-            if self.imagenumber > 11:
-                self.imagenumber = 0
             self.showimage(self.imagenumber)
         if key==Qt.Key_Left:
             self.imagenumber=self.imagenumber-1
