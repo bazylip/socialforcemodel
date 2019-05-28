@@ -28,7 +28,7 @@ def main(args):
     world = loader.world
     world.update()
 
-    world.add_measurement(single_position)
+    #world.add_measurement(single_position)
 
     figure = world.plot()
     figure.savefig("tmp/img" + str(args.number) + "/0.png",

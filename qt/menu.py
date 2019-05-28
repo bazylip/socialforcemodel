@@ -1,7 +1,7 @@
 import sys, os
-from PyQt5.QtWidgets import QMainWindow, QGridLayout, QGroupBox, QApplication, QWidget, QPushButton, QAction, QMessageBox, QLabel, QVBoxLayout
-from PyQt5.QtGui import QIcon, QPixmap
-from PyQt5.QtCore import pyqtSlot
+from PyQt5.QtWidgets import QMainWindow, QGridLayout, QGroupBox, QApplication, QWidget, QPushButton, QAction, QMessageBox, QLabel, QVBoxLayout, QHBoxLayout
+from PyQt5.QtGui import QIcon, QPixmap, QFont
+from PyQt5.QtCore import pyqtSlot, Qt
 from testers.tester import Tester
 from qt.view import App as View
 from qt.loading import App as Loading
@@ -14,7 +14,7 @@ if platform.system() == 'Linux':
 else:
     from testers.tester import Tester
 
-class Application(QMainWindow):
+class Application(QWidget):
 
     def __init__(self):
         super().__init__()
@@ -24,8 +24,8 @@ class Application(QMainWindow):
 
         self.left = 450
         self.top = 150
-        self.width = 400
-        self.height = 400
+        self.width = 100
+        self.height = 100
 
         self.initUI()
 
@@ -35,96 +35,49 @@ class Application(QMainWindow):
 
         self.setGeometry(self.left, self.top, self.width, self.height)
         
+        vbox = QVBoxLayout()
 
+        title = QLabel()
+        title.setText("WALIDATOR")
+        title.setFont(QFont("Arial", 14, QFont.Bold))
+        title.setAlignment(Qt.AlignCenter)
+        vbox.addWidget(title)
+
+        for i in [1, 4, 6, 8, 10]:
+            buttonRun = self.createRunButton(i)
+            buttonInfo = self.createInfoButton(i)
+
+            label = QLabel()
+            label.setText("Test IMO"+str(i))
         
-        menu = self.menuBar()
-        
-        test1 = menu.addMenu('Test 1')
-        action1 = test1.addAction("View description")
-        action1.setShortcut("CTRL+1")
-        action1.triggered.connect(lambda: self.fileContent("tests/testimo1.txt","1"))
-        action1a = test1.addAction("Run test")
-        action1a.setShortcut("CTRL+SHIFT+1")
-        
-        action1a.triggered.connect(lambda: self.runTest(1))
+            hbox = QHBoxLayout()
+            hbox.addWidget(label)
+            hbox.addWidget(buttonRun)
+            hbox.addWidget(buttonInfo)
+            vbox.addLayout(hbox)
 
-        action1b = test1.addAction("View simulation")
-        action1b.setShortcut("CTRL+F1")
-        action1b.triggered.connect(lambda: self.windowTest())
-
-        test4 = menu.addMenu('Test 4')
-        action4 = test4.addAction("View description")
-        action4.setShortcut("CTRL+2")
-        action4.triggered.connect(lambda: self.fileContent("tests/testimo4.txt","4"))
-        action2a = test4.addAction("Run test")
-        action2a.setShortcut("CTRL+SHIFT+2")
-        action2a.triggered.connect(lambda: self.runTest(4))
-        action2b = test4.addAction("View simulation")
-        action2b.setShortcut("CTRL+F2")
-        action2b.triggered.connect(lambda: self.windowTest())
-
-        test6 = menu.addMenu('Test 6')
-        action6 = test6.addAction("View description")
-        action6.setShortcut("CTRL+3")
-        action6.triggered.connect(lambda: self.fileContent("tests/testimo6.txt","6"))
-        action3a = test6.addAction("Run test")
-        action3a.setShortcut("CTRL+SHIFT+3")
-        action3a.triggered.connect(lambda: self.runTest(6))
-        action3b = test6.addAction("View simulation")
-        action3b.setShortcut("CTRL+F3")
-        action3b.triggered.connect(lambda: self.windowTest())
-
-        test8 = menu.addMenu('Test 8')
-        action8 = test8.addAction("View description")
-        action8.setShortcut("CTRL+4")
-        action8.triggered.connect(lambda: self.fileContent("tests/testimo8.txt","8"))
-        action4a = test8.addAction("Run test")
-        action4a.setShortcut("CTRL+SHIFT+4")
-        action4a.triggered.connect(lambda: self.runTest(8))
-        action4b = test8.addAction("View simulation")
-        action4b.setShortcut("CTRL+F4")
-        action4b.triggered.connect(lambda: self.windowTest())
-
-        test10 = menu.addMenu('Test10')
-        action10 = test10.addAction("View description")
-        action10.setShortcut("CTRL+5")
-        action10.triggered.connect(lambda: self.fileContent("tests/testimo10.txt","10"))
-        action5a = test10.addAction("Run test")
-        action5a.setShortcut("CTRL+SHIFT+5")
-        action5a.triggered.connect(lambda: self.runTest(10))
-        action5b = test10.addAction("View simulation")
-        action5b.setShortcut("CTRL+F5")
-        action5b.triggered.connect(lambda: self.windowTest())
-        
-        
-        """
-        self.gridLayout()
-        windowLayout = QVBoxLayout()
-        windowLayout.addWidget(self.horizontalGroupBox)
-        self.setLayout(windowLayout)
-        """
+        self.setLayout(vbox)
         self.show()
-    
-    """
-    def gridLayout(self):
-        self.horizontalGroupBox = QGroupBox("Grid")
-        layout = QGridLayout()
-        layout.setColumnStretch(1, 5)
-        layout.setColumnStretch(2, 5)
-        
-        label1 = QLabel()
-        label1.setText('Test 1')
-        layout.addWidget(label1,0,0)
-        layout.addWidget(QPushButton('START'),0,1)
 
-        self.horizontalGroupBox.setLayout(layout)
-    """
-    def fileContent(self,file,number):
-        text = open(file, "r")
+    def createRunButton(self, number):
+        button = QPushButton(" Run")
+        button.clicked.connect(lambda: self.runTest(number))
+        icon = QIcon('qt/go.png')
+        button.setIcon(icon)
+        return button
+
+    def createInfoButton(self, number):
+        button = QPushButton("See info")
+        button.clicked.connect(lambda: self.fileContent("tests/testimo" + str(number) + ".txt", number))
+        return button
+
+    @pyqtSlot()
+    def fileContent(self, f, number):
+        text = open(f, "r")
         if text.mode == "r":
             data=text.read()
         msg = QMessageBox(self)
-        msg.setWindowTitle("Test "+number+" description")
+        msg.setWindowTitle("Test IMO" + str(number) + " description")
         msg.setText(data)
         msg.show()
 
@@ -140,13 +93,11 @@ class Application(QMainWindow):
         else:
             event.ignore()
 
-    #def keyPressEvent(self, e):
-        #if e.key() == Qt.Key_Escape:
-        #    self.close()
+    def keyPressEvent(self, event):
+        key = event.key()
+        if key == Qt.Key_Escape:
+            self.close()
 
-    def windowTest(self):
-        self.w = View()
-        self.w.show()
     
     def windowLoadingOpen(self):
         self.w = Loading()
@@ -162,8 +113,9 @@ class Application(QMainWindow):
     @pyqtSlot()
     def runTest(self, number):
         print('Running...')
+        
         #self.windowLoadingOpen()
-        #self.runTester(number)
+        self.runTester(number)
         #self.windowLoadingClose()
         self.windowResults([True, False, False, True, True])
 
@@ -171,7 +123,7 @@ class Application(QMainWindow):
     
     def runTester(self, number):
         t = Tester(number)
-        t.run()
+        results = t.run()
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)

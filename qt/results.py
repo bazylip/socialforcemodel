@@ -2,6 +2,7 @@ from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QHBoxLayout, QVBoxLay
 from PyQt5.QtGui import QIcon
 from PyQt5.QtGui import QPixmap
 from PyQt5.QtCore import Qt, pyqtSlot
+from qt.view import App as View
 
 class App(QWidget):
     def __init__(self, results = []):
@@ -17,7 +18,7 @@ class App(QWidget):
         
         self.setWindowTitle(self.title)
         self.setWindowIcon(QIcon('test.png'))
-        self.setGeometry(400, 200, 500, 180)
+        self.setGeometry(400, 200, 300, 180)
         
         for i in range(1,6):
             label = QLabel()
@@ -45,7 +46,13 @@ class App(QWidget):
         button = QPushButton("See results " + str(number), self)
         button.clicked.connect(lambda: self.buttonClick(number))
         return button
+    
+    def keyPressEvent(self, event):
+        key = event.key()
+        if key == Qt.Key_Escape:
+            self.close()
 
     @pyqtSlot()
     def buttonClick(self, number):
-        print(number)
+        self.viewWindow = View(number)
+        self.viewWindow.show()

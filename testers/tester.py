@@ -6,16 +6,16 @@ import time
 def simulate(testNum, repetition):
     if testNum == 1:
         command = './main.py tests/testimo' + str(testNum) + '.yaml -s 800 -n ' + str(repetition)
-    elif testNum == 2:
-        command = 'print "error"'
-    elif testNum == 3:
-        command = 'print "error"'
     elif testNum == 4:
-        command = 'print "error"'
-    elif testNum == 5:
-        command = 'print "error"'
+        command = './main.py tests/testimo' + str(testNum) + '.yaml -s 800 -n ' + str(repetition)
+    elif testNum == 6:
+        command = './main.py tests/testimo' + str(testNum) + '.yaml -s 200 -n ' + str(repetition)
+    elif testNum == 8:
+        command = './main.py tests/testimo' + str(testNum) + '.yaml -s 200 -n ' + str(repetition)
+    elif testNum == 10:
+        command = './main.py tests/testimo' + str(testNum) + '.yaml -s 200 -n ' + str(repetition)
     else:
-        command = 'print "error"'
+        command = 'ls'
 
     try:
         retcode = call(command, shell=True)
