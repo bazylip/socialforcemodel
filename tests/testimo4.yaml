@@ -1,49 +1,60 @@
-world_height: 7
-world_width: 10
+world_height: 9
+world_width: 12
 step_size: 0.05
 groups:
     -   num_pedestrians: 100
         spawn_area:
             start:
-                x: 1.0
-                y: 6.0
+                x: 2.5
+                y: 2.5
             end:
-                x: 9.0
-                y: 1.0
+                x: 9.5
+                y: 6.5
+        target_path:
+            -   x: 8.5
+                y: 4.5
+            -   x: 9.0
+                y: 4.5
+            -   x: 9.5
+                y: 4.5
+            -   x: 10.0
+                y: 4.5
+            -   x: 10.5
+                y: 4.5
         target_area:
             start:
-                x: 9.0
-                y: 3.0
+                x: 12.0
+                y: 4.1
             end:
-                x: 9.0
-                y: 4.0
+                x: 12.0
+                y: 4.9
         desired_velocity: 1.0
         maximum_velocity: 1.0
 
 
 obstacles:
     -   points:
-            -   x: 9.0
-                y: 3.0
-            -   x: 9.0
-                y: 1.0
+            -   x: 2.0
+                y: 2.0
+            -   x: 2.0
+                y: 7.0
     -   points:
-            -   x: 9.0
-                y: 1.0
-            -   x: 1.0
-                y: 1.0
+            -   x: 2.0
+                y: 2.0
+            -   x: 10.0
+                y: 2.0
     -   points:
-            -   x: 1.0
-                y: 1.0
-            -   x: 1.0
-                y: 6.0
+            -   x: 2.0
+                y: 7.0
+            -   x: 10.0
+                y: 7.0
     -   points:
-            -   x: 1.0
-                y: 6.0
-            -   x: 9.0
-                y: 6.0
-    -   points:
-            -   x: 9.0
-                y: 6.0
-            -   x: 9.0
+            -   x: 10.0
+                y: 2.0
+            -   x: 10.0
                 y: 4.0
+    -   points:
+            -   x: 10.0
+                y: 5.0
+            -   x: 10.0
+                y: 7.0
