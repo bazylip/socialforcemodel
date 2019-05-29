@@ -41,9 +41,6 @@ groups:
                 x: 6.25
                 y: 3.33
             - start:
-                x: 6.75
-                y: 3.33
-            - start:
                 x: 3.25
                 y: 4.0
             - start:
@@ -73,6 +70,16 @@ groups:
             - start:
                 x: 4.25
                 y: 4.66
+            - start:
+                x: 4.75
+                y: 4.66
+            - start:
+                x: 5.25
+                y: 4.66
+            - start:
+                x: 5.75
+                y: 4.66
+
 obstacles:
     -   points:
         -   x: 3.0
