@@ -1,5 +1,5 @@
 import sys, os
-from PyQt5.QtWidgets import QMainWindow, QGridLayout, QGroupBox, QApplication, QWidget, QPushButton, QAction, QMessageBox, QLabel, QVBoxLayout, QHBoxLayout
+from PyQt5.QtWidgets import QMainWindow, QGridLayout, QGroupBox, QApplication, QWidget, QPushButton, QAction, QMessageBox, QLabel, QVBoxLayout, QHBoxLayout, QDialog, QFormLayout, QLineEdit, QDialogButtonBox
 from PyQt5.QtGui import QIcon, QPixmap, QFont
 from PyQt5.QtCore import pyqtSlot, Qt
 from testers.tester import Tester
@@ -37,11 +37,20 @@ class Application(QWidget):
         
         vbox = QVBoxLayout()
 
+
         title = QLabel()
         title.setText("WALIDATOR")
         title.setFont(QFont("Arial", 14, QFont.Bold))
         title.setAlignment(Qt.AlignCenter)
         vbox.addWidget(title)
+        
+        repetitionBox = QHBoxLayout()
+        self.textbox = QLineEdit(self)
+        repetitionInfo = QLabel()
+        repetitionInfo.setText("Number of repetitions")
+        repetitionBox.addWidget(repetitionInfo)
+        repetitionBox.addWidget(self.textbox)
+        vbox.addLayout(repetitionBox)
 
         for i in [1, 4, 6, 8, 10]:
             buttonRun = self.createRunButton(i)
@@ -106,24 +115,28 @@ class Application(QWidget):
     def windowLoadingClose(self):
         self.w.close()
 
-    def windowResults(self, results):
-        self.w = Results(results)
+    def windowResults(self, results, repetitions):
+        self.w = Results(results, repetitions)
         self.w.show()
 
     @pyqtSlot()
-    def runTest(self, number):
+    def runTest(self, testNumber):
         print('Running...')
         
         #self.windowLoadingOpen()
-        self.runTester(number)
+        start = time.perf_counter()
+        results = self.runTester(testNumber, int(self.textbox.text()))
+        end = time.perf_counter()
+        print("Elapsed time: ", end-start, "ms")
         #self.windowLoadingClose()
-        self.windowResults([True, False, False, True, True])
+        self.windowResults(results, int(self.textbox.text()))
 
         print('Done!')
     
-    def runTester(self, number):
-        t = Tester(number)
-        results = t.run()
+    def runTester(self, testNumber, repetitions):
+        t = Tester(testNumber, repetitions)
+        return t.run()
+        
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)

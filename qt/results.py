@@ -5,9 +5,10 @@ from PyQt5.QtCore import Qt, pyqtSlot
 from qt.view import App as View
 
 class App(QWidget):
-    def __init__(self, results = []):
+    def __init__(self, results, repetitions):
         super().__init__()
         self.results = results
+        self.repetitions = repetitions
         self.title = 'Results'
         self.imagenumber = 0
         self.initUI()
@@ -20,7 +21,7 @@ class App(QWidget):
         self.setWindowIcon(QIcon('test.png'))
         self.setGeometry(400, 200, 300, 180)
         
-        for i in range(1,6):
+        for i in range(1, self.repetitions + 1):
             label = QLabel()
             label.setText("Result " + str(i) + ": " + str(self.results[i-1]))
             

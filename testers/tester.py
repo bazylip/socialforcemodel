@@ -5,15 +5,15 @@ import time
 
 def simulate(testNum, repetition):
     if testNum == 1:
-        command = './main.py tests/testimo' + str(testNum) + '.yaml -s 800 -n ' + str(repetition)
+        command = './main.py tests/testimo1.yaml -s 800 -n ' + str(repetition)
     elif testNum == 4:
-        command = './main.py tests/testimo' + str(testNum) + '.yaml -s 800 -n ' + str(repetition)
+        command = './main.py tests/testimo4.yaml -s 800 -n ' + str(repetition)
     elif testNum == 6:
-        command = './main.py tests/testimo' + str(testNum) + '.yaml -s 200 -n ' + str(repetition)
+        command = './main.py tests/testimo6.yaml -s 200 -n ' + str(repetition)
     elif testNum == 8:
-        command = './main.py tests/testimo' + str(testNum) + '.yaml -s 200 -n ' + str(repetition)
+        command = './main.py tests/testimo8p100.yaml -s 200 -n ' + str(repetition)
     elif testNum == 10:
-        command = './main.py tests/testimo' + str(testNum) + '.yaml -s 200 -n ' + str(repetition)
+        command = './main.py tests/testimo10.yaml -s 200 -n ' + str(repetition)
     else:
         command = 'ls'
 
@@ -43,18 +43,36 @@ def checkResults(testNum, repetition):
         
 
 class Tester:
-    def __init__(self, testNum):
+    def __init__(self, testNum, numOfRepetitions):
         self.testNum = testNum
+        self.numOfRepetitions = numOfRepetitions
     
     def run(self):
         self.sim()
         return self.check()
 
     def sim(self):
-        p = Pool(5)
-        p.starmap(simulate, [(self.testNum, 1), (self.testNum, 2), (self.testNum, 3), (self.testNum, 4), (self.testNum, 5)]) 
+        p = Pool(self.numOfRepetitions)
+        if self.numOfRepetitions == 1:
+            p.starmap(simulate, [(self.testNum, 1)]) 
+        elif self.numOfRepetitions == 2:
+            p.starmap(simulate, [(self.testNum, 1), (self.testNum, 2)])
+        elif self.numOfRepetitions == 3:
+            p.starmap(simulate, [(self.testNum, 1), (self.testNum, 2), (self.testNum, 3)])
+        elif self.numOfRepetitions == 4:
+            p.starmap(simulate, [(self.testNum, 1), (self.testNum, 2), (self.testNum, 3), (self.testNum, 4)])
+        elif self.numOfRepetitions == 5:
+            p.starmap(simulate, [(self.testNum, 1), (self.testNum, 2), (self.testNum, 3), (self.testNum, 4), (self.testNum, 5)])
 
     def check(self):
-        p = Pool(5)
-        return p.starmap(checkResults, [(self.testNum, 1), (self.testNum, 2), (self.testNum, 3), (self.testNum, 4), (self.testNum, 5)]) 
-        
+        p = Pool(self.numOfRepetitions)
+        if self.numOfRepetitions == 1:
+            return p.starmap(checkResults, [(self.testNum, 1)]) 
+        elif self.numOfRepetitions == 2:
+            return p.starmap(checkResults, [(self.testNum, 1), (self.testNum, 2)])
+        elif self.numOfRepetitions == 3:
+            return p.starmap(checkResults, [(self.testNum, 1), (self.testNum, 2), (self.testNum, 3)])
+        elif self.numOfRepetitions == 4:
+            return p.starmap(checkResults, [(self.testNum, 1), (self.testNum, 2), (self.testNum, 3), (self.testNum, 4)])
+        elif self.numOfRepetitions == 5:
+            return p.starmap(checkResults, [(self.testNum, 1), (self.testNum, 2), (self.testNum, 3), (self.testNum, 4), (self.testNum, 5)])
