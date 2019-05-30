@@ -39,12 +39,15 @@ class App(QWidget):
         self.show()
 
     def showImage(self, folderNumber, imageNumber):
-        directory = "./tmp/img" + str(folderNumber)
         if platform.system() == 'Linux':
+            directory = "./tmp/img" + str(folderNumber)
             pixmap = QPixmap(directory + "/" + str(imageNumber) + ".png")
-        else: 
-            imagelist = ["0.png","1.0.png","2.0.png","3.0.png","4.0.png","5.0.png","6.0.png","7.0.png","8.0.png","9.0.png","10.0.png"]
-            pixmap = QPixmap(directory + '\\' + imagelist[imagenumber])
+        else:
+            directory = "tmp/img" + str(folderNumber)
+            imagelist = ["0.png","1.0.png","2.0.png","3.0.png","4.0.png","5.0.png","6.0.png","7.0.png","8.0.png","9.0.png",
+                         "10.0.png","11.0.png","12.0.png","13.0.png","14.0.png","15.0.png","16.0.png","17.0.png","18.0.png",
+                         "19.0.png","20.0.png"]
+            pixmap = QPixmap(directory + '\\' + imagelist[imageNumber])
         pixmapResized = pixmap.scaled(800, 600, Qt.KeepAspectRatio)
         self.label.setPixmap(pixmapResized)
         self.resize(600, 400)

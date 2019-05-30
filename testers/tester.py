@@ -2,18 +2,24 @@ from multiprocessing import Pool
 from subprocess import call
 import os
 import time
+import platform
 
 def simulate(testNum, repetition):
+    if platform.system() == 'Linux':
+        runFile = "./main.py"
+    else:
+        runFile = "python main.py"
+
     if testNum == 1:
-        command = './main.py tests/testimo1.yaml -s 800 -n ' + str(repetition)
+        command = runFile + ' tests/testimo1.yaml -s 800 -n ' + str(repetition)
     elif testNum == 4:
-        command = './main.py tests/testimo4.yaml -s 800 -n ' + str(repetition)
+        command = runFile + ' tests/testimo4.yaml -s 800 -n ' + str(repetition)
     elif testNum == 6:
-        command = './main.py tests/testimo6.yaml -s 200 -n ' + str(repetition)
+        command = runFile + ' tests/testimo6.yaml -s 200 -n ' + str(repetition)
     elif testNum == 8:
-        command = './main.py tests/testimo8p100.yaml -s 200 -n ' + str(repetition)
+        command = runFile + ' tests/testimo8p100.yaml -s 200 -n ' + str(repetition)
     elif testNum == 10:
-        command = './main.py tests/testimo10.yaml -s 200 -n ' + str(repetition)
+        command = runFile + ' tests/testimo10.yaml -s 200 -n ' + str(repetition)
     else:
         command = 'ls'
 
