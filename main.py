@@ -28,7 +28,7 @@ def main(args):
     world = loader.world
     world.update()
 
-    #world.add_measurement(single_position)
+    world.add_measurement(single_position)
 
     figure = world.plot()
     figure.savefig("tmp/img" + str(args.number) + "/0.png",
@@ -42,9 +42,9 @@ def main(args):
         if not world.step():
             break
         world.update()
-        if step % (args.steps / 20) == (args.steps / 20) - 1:
+        if step % (args.steps / args.images) == (args.steps / args.images) - 1:
             figure = world.plot()
-            figure.savefig("tmp/img" + str(args.number) + "/" + str((step + 1)/(args.steps / 20)) + ".png",
+            figure.savefig("tmp/img" + str(args.number) + "/" + str((step + 1)/(args.steps / args.images)) + ".png",
                            bbox_inches = 'tight',
                            pad_inches = 0.1)
             figure.clear()
@@ -59,5 +59,6 @@ if __name__ == '__main__':
     parser.add_argument('file', help='YAML-file')
     parser.add_argument('-s', '--steps', help='Number of steps', type=int, default=500)
     parser.add_argument('-n', '--number', help='Number of test (1,2,3,4,5)', type=int)
+    parser.add_argument('-i', '--images', help='Number of images', type=int)
     args = parser.parse_args(sys.argv[1:])
     main(args)

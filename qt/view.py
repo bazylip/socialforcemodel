@@ -5,24 +5,25 @@ from PyQt5.QtCore import Qt
 import platform
 
 class App(QWidget):
-    def __init__(self, folderNumber):
+    def __init__(self, folderNumber, imagesAmount):
         super().__init__()
-        self.title = 'Simulation 0/20'
+        self.title = 'Simulation 0/' + str(imagesAmount)
         self.imageNumber = 0
         self.folderNumber = folderNumber
+        self.imagesAmount = imagesAmount
         self.initUI()
 
     def keyPressEvent(self, event):
         key = event.key()
         if key == Qt.Key_Right:
-            if self.imageNumber < 20:
+            if self.imageNumber < self.imagesAmount:
                 self.imageNumber = self.imageNumber + 1
-                self.setWindowTitle('Simulation ' + str(self.imageNumber) + '/20')
+                self.setWindowTitle('Simulation ' + str(self.imageNumber) + '/' + str(self.imagesAmount))
                 self.showImage(self.folderNumber, self.imageNumber)
         if key == Qt.Key_Left:
             if self.imageNumber > 0:
-                self.imageNumber = self.imageNumber-1
-                self.setWindowTitle('Simulation ' + str(self.imageNumber) + '/20')
+                self.imageNumber = self.imageNumber - 1
+                self.setWindowTitle('Simulation ' + str(self.imageNumber) + '/' + str(self.imagesAmount))
                 self.showImage(self.folderNumber, self.imageNumber)
         if key == Qt.Key_Escape:
                 self.close()

@@ -5,12 +5,13 @@ from PyQt5.QtCore import Qt, pyqtSlot
 from qt.view import App as View
 
 class App(QWidget):
-    def __init__(self, results, repetitions):
+    def __init__(self, results, repetitions, imagesAmount):
         super().__init__()
         self.results = results
         self.repetitions = repetitions
         self.title = 'Results'
         self.imagenumber = 0
+        self.imagesAmount = imagesAmount
         self.initUI()
 
         
@@ -55,5 +56,5 @@ class App(QWidget):
 
     @pyqtSlot()
     def buttonClick(self, number):
-        self.viewWindow = View(number)
+        self.viewWindow = View(number, self.imagesAmount)
         self.viewWindow.show()

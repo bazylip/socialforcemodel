@@ -46,11 +46,21 @@ class Application(QWidget):
         
         repetitionBox = QHBoxLayout()
         self.textbox = QLineEdit(self)
+        self.textbox.setFixedWidth(100)
         repetitionInfo = QLabel()
         repetitionInfo.setText("Number of repetitions")
         repetitionBox.addWidget(repetitionInfo)
         repetitionBox.addWidget(self.textbox)
         vbox.addLayout(repetitionBox)
+
+        imageAmountBox = QHBoxLayout()
+        self.imagebox = QLineEdit(self)
+        self.imagebox.setFixedWidth(100)
+        imageAmountInfo = QLabel()
+        imageAmountInfo.setText("Number of images")
+        imageAmountBox.addWidget(imageAmountInfo)
+        imageAmountBox.addWidget(self.imagebox)
+        vbox.addLayout(imageAmountBox)
 
         for i in [1, 4, 6, 8, 10]:
             buttonRun = self.createRunButton(i)
@@ -115,8 +125,8 @@ class Application(QWidget):
     def windowLoadingClose(self):
         self.w.close()
 
-    def windowResults(self, results, repetitions):
-        self.w = Results(results, repetitions)
+    def windowResults(self, results, repetitions, images):
+        self.w = Results(results, repetitions, images)
         self.w.show()
 
     @pyqtSlot()
@@ -125,16 +135,16 @@ class Application(QWidget):
         
         #self.windowLoadingOpen()
         start = time.perf_counter()
-        results = self.runTester(testNumber, int(self.textbox.text()))
+        results = self.runTester(testNumber, int(self.textbox.text()), int(self.imagebox.text()))
         end = time.perf_counter()
         print("Elapsed time: ", end-start, "ms")
         #self.windowLoadingClose()
-        self.windowResults(results, int(self.textbox.text()))
+        self.windowResults(results, int(self.textbox.text()), int(self.imagebox.text()))
 
         print('Done!')
     
-    def runTester(self, testNumber, repetitions):
-        t = Tester(testNumber, repetitions)
+    def runTester(self, testNumber, repetitions, images):
+        t = Tester(testNumber, repetitions, images)
         return t.run()
         
 
