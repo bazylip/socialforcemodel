@@ -20,11 +20,11 @@ groups:
                 y: 4.5
         target_area:
             start:
-                x: 11.0
-                y: 4.5
+                x: 12.0
+                y: 4.1
             end:
-                x: 11.0
-                y: 4.5
+                x: 12.0
+                y: 4.9
         pedestrians:
             -   start:
                     x: 2.5
@@ -57,274 +57,274 @@ groups:
                     x: 2.7
                     y: 6.7
             -   start:
-                    x: 2.9
+                    x: 3.1
                     y: 2.2
-            -   start:
-                    x: 3.1
-                    y: 2.7
-            -   start:
-                    x: 2.9
-                    y: 3.2
-            -   start:
-                    x: 3.1
-                    y: 3.7
-            -   start:
-                    x: 2.9
-                    y: 4.2
-            -   start:
-                    x: 3.1
-                    y: 4.7
-            -   start:
-                    x: 2.9
-                    y: 5.2
-            -   start:
-                    x: 3.1
-                    y: 5.7
-            -   start:
-                    x: 2.9
-                    y: 6.2
-            -   start:
-                    x: 3.1
-                    y: 6.7
             -   start:
                     x: 3.3
-                    y: 2.2
-            -   start:
-                    x: 3.5
                     y: 2.7
+            -   start:
+                    x: 3.1
+                    y: 3.2
             -   start:
                     x: 3.3
-                    y: 3.2
-            -   start:
-                    x: 3.5
                     y: 3.7
+            -   start:
+                    x: 3.1
+                    y: 4.2
             -   start:
                     x: 3.3
-                    y: 4.2
-            -   start:
-                    x: 3.5
                     y: 4.7
+            -   start:
+                    x: 3.1
+                    y: 5.2
             -   start:
                     x: 3.3
-                    y: 5.2
-            -   start:
-                    x: 3.5
                     y: 5.7
+            -   start:
+                    x: 3.1
+                    y: 6.2
             -   start:
                     x: 3.3
-                    y: 6.2
-            -   start:
-                    x: 3.5
                     y: 6.7
-            -   start:
-                    x: 3.7
-                    y: 2.2
             -   start:
                     x: 3.9
-                    y: 2.7
+                    y: 2.2
             -   start:
-                    x: 3.7
-                    y: 3.2
+                    x: 4.1
+                    y: 2.7
             -   start:
                     x: 3.9
-                    y: 3.7
+                    y: 3.2
             -   start:
-                    x: 3.7
-                    y: 4.2
+                    x: 4.1
+                    y: 3.7
             -   start:
                     x: 3.9
-                    y: 4.7
+                    y: 4.2
             -   start:
-                    x: 3.7
-                    y: 5.2
+                    x: 4.1
+                    y: 4.7
             -   start:
                     x: 3.9
-                    y: 5.7
+                    y: 5.2
             -   start:
-                    x: 3.7
-                    y: 6.2
+                    x: 4.1
+                    y: 5.7
             -   start:
                     x: 3.9
-                    y: 6.7
+                    y: 6.2
             -   start:
                     x: 4.1
-                    y: 2.2
-            -   start:
-                    x: 4.2
-                    y: 2.7
-            -   start:
-                    x: 4.1
-                    y: 3.2
-            -   start:
-                    x: 4.2
-                    y: 3.7
-            -   start:
-                    x: 4.1
-                    y: 4.2
-            -   start:
-                    x: 4.2
-                    y: 4.7
-            -   start:
-                    x: 4.1
-                    y: 5.2
-            -   start:
-                    x: 4.2
-                    y: 5.7
-            -   start:
-                    x: 4.1
-                    y: 6.2
-            -   start:
-                    x: 4.2
                     y: 6.7
             -   start:
-                    x: 4.5
+                    x: 4.7
                     y: 2.2
             -   start:
-                    x: 4.7
+                    x: 4.9
                     y: 2.7
             -   start:
-                    x: 4.5
+                    x: 4.7
                     y: 3.2
             -   start:
-                    x: 4.7
+                    x: 4.9
                     y: 3.7
             -   start:
-                    x: 4.5
+                    x: 4.7
                     y: 4.2
             -   start:
-                    x: 4.7
+                    x: 4.9
                     y: 4.7
             -   start:
-                    x: 4.5
+                    x: 4.7
                     y: 5.2
             -   start:
-                    x: 4.7
+                    x: 4.9
                     y: 5.7
             -   start:
-                    x: 4.5
+                    x: 4.7
                     y: 6.2
             -   start:
-                    x: 4.7
+                    x: 4.9
                     y: 6.7
             -   start:
-                    x: 4.9
+                    x: 5.5
                     y: 2.2
             -   start:
-                    x: 5.1
+                    x: 5.7
                     y: 2.7
             -   start:
-                    x: 4.9
+                    x: 5.5
                     y: 3.2
             -   start:
-                    x: 5.1
+                    x: 5.7
                     y: 3.7
             -   start:
-                    x: 4.9
+                    x: 5.5
                     y: 4.2
             -   start:
-                    x: 5.1
+                    x: 5.7
                     y: 4.7
             -   start:
-                    x: 4.9
+                    x: 5.5
                     y: 5.2
             -   start:
-                    x: 5.1
+                    x: 5.7
                     y: 5.7
             -   start:
-                    x: 4.9
+                    x: 5.5
                     y: 6.2
             -   start:
-                    x: 5.1
+                    x: 5.7
                     y: 6.7
             -   start:
-                    x: 5.3
+                    x: 6.3
                     y: 2.2
             -   start:
-                    x: 5.5
+                    x: 6.5
                     y: 2.7
             -   start:
-                    x: 5.3
+                    x: 6.3
                     y: 3.2
             -   start:
-                    x: 5.5
+                    x: 6.5
                     y: 3.7
             -   start:
-                    x: 5.3
+                    x: 6.3
                     y: 4.2
             -   start:
-                    x: 5.5
+                    x: 6.5
                     y: 4.7
             -   start:
-                    x: 5.3
+                    x: 6.3
                     y: 5.2
             -   start:
-                    x: 5.5
+                    x: 6.5
                     y: 5.7
             -   start:
-                    x: 5.3
+                    x: 6.3
                     y: 6.2
             -   start:
-                    x: 5.5
+                    x: 6.5
                     y: 6.7
             -   start:
-                    x: 5.7
+                    x: 7.1
                     y: 2.2
             -   start:
-                    x: 5.9
+                    x: 7.3
                     y: 2.7
             -   start:
-                    x: 5.7
+                    x: 7.1
                     y: 3.2
             -   start:
-                    x: 5.9
+                    x: 7.3
                     y: 3.7
             -   start:
-                    x: 5.7
+                    x: 7.1
                     y: 4.2
             -   start:
-                    x: 5.9
+                    x: 7.3
                     y: 4.7
             -   start:
-                    x: 5.7
+                    x: 7.1
                     y: 5.2
             -   start:
-                    x: 5.9
+                    x: 7.3
                     y: 5.7
             -   start:
-                    x: 5.7
+                    x: 7.1
                     y: 6.2
             -   start:
-                    x: 5.9
+                    x: 7.3
                     y: 6.7
             -   start:
-                    x: 6.1
+                    x: 7.9
                     y: 2.2
             -   start:
-                    x: 6.3
+                    x: 8.1
                     y: 2.7
             -   start:
-                    x: 6.1
+                    x: 7.9
                     y: 3.2
             -   start:
-                    x: 6.3
+                    x: 8.1
                     y: 3.7
             -   start:
-                    x: 6.1
+                    x: 7.9
                     y: 4.2
             -   start:
-                    x: 6.3
+                    x: 8.1
                     y: 4.7
             -   start:
-                    x: 6.1
+                    x: 7.9
                     y: 5.2
             -   start:
-                    x: 6.3
+                    x: 8.1
                     y: 5.7
             -   start:
-                    x: 6.1
+                    x: 7.9
                     y: 6.2
             -   start:
-                    x: 6.3
+                    x: 8.1
+                    y: 6.7
+            -   start:
+                    x: 8.7
+                    y: 2.2
+            -   start:
+                    x: 8.9
+                    y: 2.7
+            -   start:
+                    x: 8.7
+                    y: 3.2
+            -   start:
+                    x: 8.9
+                    y: 3.7
+            -   start:
+                    x: 8.7
+                    y: 4.2
+            -   start:
+                    x: 8.9
+                    y: 4.7
+            -   start:
+                    x: 8.7
+                    y: 5.2
+            -   start:
+                    x: 8.9
+                    y: 5.7
+            -   start:
+                    x: 8.7
+                    y: 6.2
+            -   start:
+                    x: 8.9
+                    y: 6.7
+            -   start:
+                    x: 9.5
+                    y: 2.2
+            -   start:
+                    x: 9.7
+                    y: 2.7
+            -   start:
+                    x: 9.5
+                    y: 3.2
+            -   start:
+                    x: 9.7
+                    y: 3.7
+            -   start:
+                    x: 9.5
+                    y: 4.2
+            -   start:
+                    x: 9.7
+                    y: 4.7
+            -   start:
+                    x: 9.5
+                    y: 5.2
+            -   start:
+                    x: 9.7
+                    y: 5.7
+            -   start:
+                    x: 9.75
+                    y: 6.2
+            -   start:
+                    x: 9.7
                     y: 6.7
 
 
