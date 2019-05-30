@@ -11,15 +11,15 @@ def simulate(testNum, repetition, images):
         runFile = "python main.py"
 
     if testNum == 1:
-        command = runFile + ' tests/testimo1.yaml -s 800 -n ' + str(repetition) + ' -i ' + str(images)
+        command = runFile + ' tests/testimo1.yaml -s 800 -t 1 -n ' + str(repetition) + ' -i ' + str(images)
     elif testNum == 4:
-        command = runFile + ' tests/testimo4.yaml -s 800 -n ' + str(repetition) + ' -i ' + str(images)
+        command = runFile + ' tests/testimo4.yaml -s 500 -t 4 -n ' + str(repetition) + ' -i ' + str(images)
     elif testNum == 6:
-        command = runFile + ' tests/testimo6.yaml -s 200 -n ' + str(repetition) + ' -i ' + str(images)
+        command = runFile + ' tests/testimo6.yaml -s 700 -t 6 -n ' + str(repetition) + ' -i ' + str(images)
     elif testNum == 8:
-        command = runFile + ' tests/testimo8p100.yaml -s 200 -n ' + str(repetition) + ' -i ' + str(images)
+        command = runFile + ' tests/testimo8p100.yaml -s 200 -t 8 -n ' + str(repetition) + ' -i ' + str(images)
     elif testNum == 10:
-        command = runFile + ' tests/testimo10.yaml -s 200 -n ' + str(repetition) + ' -i ' + str(images)
+        command = runFile + ' tests/testimo10.yaml -s 200 -t 10 -n ' + str(repetition) + ' -i ' + str(images)
     else:
         command = 'ls'
 

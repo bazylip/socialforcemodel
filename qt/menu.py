@@ -137,7 +137,7 @@ class Application(QWidget):
         start = time.perf_counter()
         results = self.runTester(testNumber, int(self.textbox.text()), int(self.imagebox.text()))
         end = time.perf_counter()
-        print("Elapsed time: ", end-start, "ms")
+        print("Elapsed time: ", end-start, "s")
         #self.windowLoadingClose()
         self.windowResults(results, int(self.textbox.text()), int(self.imagebox.text()))
 

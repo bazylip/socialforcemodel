@@ -4,31 +4,31 @@ import socialforcemodel as sfm
 import numpy as np
 import matplotlib.pyplot as plt
 
-def single_position(world):
+def xPosition(world):
     for group in world.groups:
         for p in group.pedestrians:
             return p.position[0]
 
-def average_speed(world):
-    velocities = []
-    for group in world.groups:
-        for p in group.pedestrians:
-            velocities.append(p.speed)
-    return np.mean(velocities)
+def peopleInRoom(world):
+    counter = 0
 
-def avg_num_neighbours(world):
-    counts = []
     for group in world.groups:
         for p in group.pedestrians:
-            counts.append(p.get_measurement('neighbourhood', 'num_neighbours'))
-    return np.mean(counts)
+            if p.position[0] < 10:
+                counter += 1
+    print("People left in room: ", counter)
+    return counter
 
 def main(args):
     loader = sfm.ParameterLoader(args.file)
     world = loader.world
     world.update()
 
-    world.add_measurement(single_position)
+
+    if args.test == 1:
+        world.add_measurement(xPosition)
+    elif args.test == 4:
+        world.add_measurement(peopleInRoom)
 
     figure = world.plot()
     figure.savefig("tmp/img" + str(args.number) + "/0.png",
@@ -38,7 +38,6 @@ def main(args):
     plt.close(figure)
 
     for step in range(args.steps):
-        #print "Step {}".format(step + 1)
         if not world.step():
             break
         world.update()
@@ -58,7 +57,8 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('file', help='YAML-file')
     parser.add_argument('-s', '--steps', help='Number of steps', type=int, default=500)
-    parser.add_argument('-n', '--number', help='Number of test (1,2,3,4,5)', type=int)
+    parser.add_argument('-t', '--test', help='Number of test', type=int)
+    parser.add_argument('-n', '--number', help='Number of repetition (1,2,3,4,5)', type=int)
     parser.add_argument('-i', '--images', help='Number of images', type=int)
     args = parser.parse_args(sys.argv[1:])
     main(args)
