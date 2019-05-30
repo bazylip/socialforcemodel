@@ -49,7 +49,7 @@ def main(args):
             figure.clear()
             plt.close(figure)
 
-    np.savetxt("tmp/measurements" + str(args.number) + "/measurements.txt", world.measurements)
+    np.savetxt("tmp/measurements" + str(args.number) + "/measurements.txt", world.measurements, fmt='%1.4f')
 
 if __name__ == '__main__':
     import argparse
