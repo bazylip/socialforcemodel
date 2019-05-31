@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 
 flagLeft = False
 timeLeft = 0.0
+perpetrated = 0
 
 def imo1Leaving(world):
     epsilon = 0.001
@@ -13,7 +14,6 @@ def imo1Leaving(world):
     global flagLeft 
     for group in world.groups:
         for p in group.pedestrians:
-            
             if abs(p.position[0] - 42) < epsilon and not flagLeft:
                 flagLeft = True
                 timeLeft = world.time
@@ -32,6 +32,13 @@ def imo4timeToLeaveRoom(world):
         flagLeft = True
         timeLeft = world.time
     
+def imo6perpetratingCorner(world):
+    global perpetrated
+
+    for group in world.groups:
+        for p in group.pedestrians:
+            if p.position[0] < 13.15 and p.position[1] > 4.85:
+                perpetrated = 1
     
 
 def main(args):
@@ -39,6 +46,7 @@ def main(args):
     world = loader.world
     world.update()
     global timeLeft
+    global perpetrated
 
 
     if args.test == 1:
@@ -65,11 +73,11 @@ def main(args):
             figure.clear()
             plt.close(figure)
 
-    if args.test == 1:
+    if args.test == 1 or args.test == 4:
         np.savetxt("tmp/measurements" + str(args.number) + "/measurements.txt", np.array(timeLeft).reshape(1,), fmt="%1.4f")
-    else:
-        np.savetxt("tmp/measurements" + str(args.number) + "/measurements.txt", np.array(timeLeft).reshape(1,), fmt="%1.4f")
-
+    elif args.test == 6:
+        np.savetxt("tmp/measurements" + str(args.number) + "/measurements.txt", np.array(perpetrated).reshape(1,), fmt="%d")
+    
 
 if __name__ == '__main__':
     import argparse
