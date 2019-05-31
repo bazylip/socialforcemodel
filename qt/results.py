@@ -24,11 +24,12 @@ class App(QWidget):
         
         for i in range(1, self.repetitions + 1):
             label = QLabel()
-            label.setText("Result " + str(i) + ": " + str(self.results[i-1]))
             
             if self.results[i-1]:
+                label.setText("Result " + str(i) + ": Passed")
                 label.setStyleSheet('color: green')
             else:
+                label.setText("Result " + str(i) + ": Failed")
                 label.setStyleSheet('color: red')
             
             label.setAlignment(Qt.AlignLeft)

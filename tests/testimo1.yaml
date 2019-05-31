@@ -1,19 +1,17 @@
 world_height: 6
 world_width: 44
-default_desired_velocity: 1.0
-default_maximum_velocity: 1.0
 step_size: 0.05
 groups:
     -   num_pedestrians: 0
         target_area:
             start:
-                x: 42.0
+                x: 44.0
                 y: 3.0
             end:
-                x: 42.0
+                x: 44.0
                 y: 3.0
         target_path:
-            -   x: 2.0
+            -   x: 1.0
                 y: 3.0
             -   x: 7.0
                 y: 3.0
@@ -29,13 +27,16 @@ groups:
                 y: 3.0
             -   x: 37.0
                 y: 3.0
-            -   x: 42.0
+            -   x: 40.0
+                y: 3.0    
+            -   x: 44.0
                 y: 3.0
         pedestrians:
             -   start:
                     x: 2.0
                     y: 3.0
-
+                desired_velocity: 1.0
+                maximum_velocity: 1.000001                
 obstacles:
     -   points:
             -   x: 2.0

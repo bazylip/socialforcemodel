@@ -4,12 +4,22 @@ import socialforcemodel as sfm
 import numpy as np
 import matplotlib.pyplot as plt
 
-def xPosition(world):
+flagLeft = False
+timeLeft = 0.0
+
+def imo1Leaving(world):
+    epsilon = 0.001
+    global timeLeft
+    global flagLeft 
     for group in world.groups:
         for p in group.pedestrians:
-            return p.position[0]
+            
+            if abs(p.position[0] - 42) < epsilon and not flagLeft:
+                print("Leaving: ", world.time)
+                flagLeft = True
+                timeLeft = world.time
 
-def peopleInRoom(world):
+def imo4peopleInRoom(world):
     counter = 0
 
     for group in world.groups:
@@ -23,12 +33,13 @@ def main(args):
     loader = sfm.ParameterLoader(args.file)
     world = loader.world
     world.update()
+    global timeLeft
 
 
     if args.test == 1:
-        world.add_measurement(xPosition)
+        world.add_measurement(imo1Leaving)
     elif args.test == 4:
-        world.add_measurement(peopleInRoom)
+        world.add_measurement(imo4peopleInRoom)
 
     figure = world.plot()
     figure.savefig("tmp/img" + str(args.number) + "/0.png",
@@ -49,7 +60,10 @@ def main(args):
             figure.clear()
             plt.close(figure)
 
-    np.savetxt("tmp/measurements" + str(args.number) + "/measurements.txt", world.measurements, fmt='%1.4f')
+    if args.test == 1:
+        np.savetxt("tmp/measurements" + str(args.number) + "/measurements.txt", np.array(timeLeft).reshape(1,), fmt="%1.4f")
+    else:
+        np.savetxt("tmp/measurements" + str(args.number) + "/measurements.txt", world.measurements, fmt="%1.4f")
 
 if __name__ == '__main__':
     import argparse
