@@ -17,14 +17,16 @@ class App(QWidget):
         key = event.key()
         if key == Qt.Key_Right:
             if self.imageNumber < self.imagesAmount:
-                self.imageNumber = self.imageNumber + 1
-                self.setWindowTitle('Simulation ' + str(self.imageNumber) + '/' + str(self.imagesAmount))
-                self.showImage(self.folderNumber, self.imageNumber)
+                if self.showImage(self.folderNumber, self.imageNumber + 1):
+                    self.imageNumber = self.imageNumber + 1
+                    self.setWindowTitle('Simulation ' + str(self.imageNumber) + '/' + str(self.imagesAmount))
+                
         if key == Qt.Key_Left:
             if self.imageNumber > 0:
-                self.imageNumber = self.imageNumber - 1
-                self.setWindowTitle('Simulation ' + str(self.imageNumber) + '/' + str(self.imagesAmount))
-                self.showImage(self.folderNumber, self.imageNumber)
+                if self.showImage(self.folderNumber, self.imageNumber - 1):
+                    self.imageNumber = self.imageNumber - 1
+                    self.setWindowTitle('Simulation ' + str(self.imageNumber) + '/' + str(self.imagesAmount))
+                
         if key == Qt.Key_Escape:
                 self.close()
 
@@ -49,6 +51,8 @@ class App(QWidget):
                          "10.0.png","11.0.png","12.0.png","13.0.png","14.0.png","15.0.png","16.0.png","17.0.png","18.0.png",
                          "19.0.png","20.0.png"]
             pixmap = QPixmap(directory + '\\' + imagelist[imageNumber])
-        pixmapResized = pixmap.scaled(800, 600, Qt.KeepAspectRatio)
-        self.label.setPixmap(pixmapResized)
-        self.resize(600, 400)
+        if not pixmap.isNull():
+            pixmapResized = pixmap.scaled(800, 600, Qt.KeepAspectRatio)
+            self.label.setPixmap(pixmapResized)
+            self.resize(600, 400)
+        return not pixmap.isNull()

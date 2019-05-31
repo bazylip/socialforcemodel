@@ -15,19 +15,24 @@ def imo1Leaving(world):
         for p in group.pedestrians:
             
             if abs(p.position[0] - 42) < epsilon and not flagLeft:
-                print("Leaving: ", world.time)
                 flagLeft = True
                 timeLeft = world.time
 
-def imo4peopleInRoom(world):
+def imo4timeToLeaveRoom(world):
     counter = 0
+    global timeLeft
+    global flagLeft
 
     for group in world.groups:
         for p in group.pedestrians:
             if p.position[0] < 10:
                 counter += 1
-    print("People left in room: ", counter)
-    return counter
+    
+    if counter == 0 and not flagLeft:
+        flagLeft = True
+        timeLeft = world.time
+    
+    
 
 def main(args):
     loader = sfm.ParameterLoader(args.file)
@@ -39,7 +44,7 @@ def main(args):
     if args.test == 1:
         world.add_measurement(imo1Leaving)
     elif args.test == 4:
-        world.add_measurement(imo4peopleInRoom)
+        world.add_measurement(imo4timeToLeaveRoom)
 
     figure = world.plot()
     figure.savefig("tmp/img" + str(args.number) + "/0.png",
@@ -63,7 +68,8 @@ def main(args):
     if args.test == 1:
         np.savetxt("tmp/measurements" + str(args.number) + "/measurements.txt", np.array(timeLeft).reshape(1,), fmt="%1.4f")
     else:
-        np.savetxt("tmp/measurements" + str(args.number) + "/measurements.txt", world.measurements, fmt="%1.4f")
+        np.savetxt("tmp/measurements" + str(args.number) + "/measurements.txt", np.array(timeLeft).reshape(1,), fmt="%1.4f")
+
 
 if __name__ == '__main__':
     import argparse

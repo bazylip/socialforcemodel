@@ -6,6 +6,7 @@ from testers.tester import Tester
 from qt.view import App as View
 from qt.loading import App as Loading
 from qt.results import App as Results
+from subprocess import call
 import time
 import platform
 if platform.system() == 'Linux':
@@ -131,6 +132,7 @@ class Application(QWidget):
 
     @pyqtSlot()
     def runTest(self, testNumber):
+        call("for i in 1 2 3 4 5 ; do rm -rf tmp/img$i/* ; done", shell=True)
         print('Running...')
         
         #self.windowLoadingOpen()

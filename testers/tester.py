@@ -13,7 +13,7 @@ def simulate(testNum, repetition, images):
     if testNum == 1:
         command = runFile + ' tests/testimo1.yaml -s 800 -t 1 -n ' + str(repetition) + ' -i ' + str(images)
     elif testNum == 4:
-        command = runFile + ' tests/testimo4.yaml -s 100 -t 4 -n ' + str(repetition) + ' -i ' + str(images)
+        command = runFile + ' tests/testimo4.yaml -s 3000 -t 4 -n ' + str(repetition) + ' -i ' + str(images)
     elif testNum == 6:
         command = runFile + ' tests/testimo6.yaml -s 700 -t 6 -n ' + str(repetition) + ' -i ' + str(images)
     elif testNum == 8:
@@ -34,11 +34,13 @@ def checkResults(testNum, repetition):
         epsilon = 0.1
         timeLeft = float(measurements.read().split()[0])
 
-        if abs(timeLeft - 40) < epsilon:    
-            return True
-        else:
-            return False
+        return abs(timeLeft - 40) < epsilon
+    elif testNum == 4:
+        measurements = open('tmp/measurements' + str(repetition) + '/measurements.txt', 'r')
+        timeLeft = float(measurements.read().split()[0])
         
+        print('Flow: ', 100/timeLeft)
+        return (100/timeLeft) < 1.33
 
 class Tester:
     def __init__(self, testNum, numOfRepetitions, images):
