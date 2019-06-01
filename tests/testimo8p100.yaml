@@ -12,13 +12,32 @@ groups:
                 y: 11.5
         target_area:
             start:
-                x: 31.0
-                y: 7.0
+                x: 30.0
+                y: 4.0
             end:
-                x: 31.0
+                x: 32.0
+                y: 10.0
+        target_path:
+            -   x: 2.0
                 y: 7.0
-        desired_velocity: 1.0
-        maximum_velocity: 1.0
+            -   x: 5.0
+                y: 7.0
+            -   x: 8.0
+                y: 7.0
+            -   x: 11.0
+                y: 7.0
+            -   x: 14.0
+                y: 7.0
+            -   x: 17.0
+                y: 7.0
+            -   x: 20.0
+                y: 7.0
+            -   x: 23.0
+                y: 7.0
+            -   x: 26.0
+                y: 7.0
+            -   x: 30.0
+                y: 7.0
 
 
 obstacles:

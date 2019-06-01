@@ -17,11 +17,24 @@ def simulate(testNum, repetition, images):
     elif testNum == 6:
         command = runFile + ' tests/testimo6.yaml -s 600 -t 6 -n ' + str(repetition) + ' -i ' + str(images)
     elif testNum == 8:
-        command = runFile + ' tests/testimo8p100.yaml -s 200 -t 8 -n ' + str(repetition) + ' -i ' + str(images)
+        command = runFile + ' tests/testimo8p100.yaml -s 2000 -t 80 -n ' + str(repetition) + ' -i ' + str(images)
+        try:
+            retcode = call(command, shell=True)
+        except OSError as e:
+            print("Failed:", e, file=sys.stderr)
+        command = runFile + ' tests/testimo8p110.yaml -s 2000 -t 81 -n ' + str(repetition) + ' -i ' + str(images)
+        try:
+            retcode = call(command, shell=True)
+        except OSError as e:
+            print("Failed:", e, file=sys.stderr)
+        command = runFile + ' tests/testimo8p150.yaml -s 2000 -t 82 -n ' + str(repetition) + ' -i ' + str(images)
+        try:
+            retcode = call(command, shell=True)
+        except OSError as e:
+            print("Failed:", e, file=sys.stderr)
+        command = runFile + ' tests/testimo8p200.yaml -s 2000 -t 83 -n ' + str(repetition) + ' -i ' + str(images)      
     elif testNum == 10:
         command = runFile + ' tests/testimo10.yaml -s 200 -t 10 -n ' + str(repetition) + ' -i ' + str(images)
-    else:
-        command = 'ls'
 
     try:
         retcode = call(command, shell=True)
@@ -33,19 +46,26 @@ def checkResults(testNum, repetition):
         measurements = open('tmp/measurements' + str(repetition) + '/measurements.txt', 'r')
         epsilon = 0.1
         timeLeft = float(measurements.read().split()[0])
-
+        measurements.close()
         return abs(timeLeft - 40) < epsilon
     elif testNum == 4:
         measurements = open('tmp/measurements' + str(repetition) + '/measurements.txt', 'r')
         timeLeft = float(measurements.read().split()[0])
-        
-        print('Flow: ', 100/timeLeft)
+        measurements.close()
         return (100/timeLeft) < 1.33
     elif testNum == 6:
         measurements = open('tmp/measurements' + str(repetition) + '/measurements.txt', 'r')
         perpetrated = float(measurements.read().split()[0])
-
+        measurements.close()
         return perpetrated == 0
+    elif testNum == 8:
+        previousTime = -1.0
+        with open('tmp/measurements' + str(repetition) + '/measurements.txt', 'r') as measurements:
+            for time in measurements:
+                if float(time) <= previousTime:
+                    return False
+                previousTime = float(time)
+        return True
 
 class Tester:
     def __init__(self, testNum, numOfRepetitions, images):
