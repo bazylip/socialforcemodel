@@ -47,10 +47,12 @@ class App(QWidget):
             pixmap = QPixmap(directory + "/" + str(imageNumber) + ".png")
         else:
             directory = "tmp/img" + str(folderNumber)
-            imagelist = ["0.png","1.0.png","2.0.png","3.0.png","4.0.png","5.0.png","6.0.png","7.0.png","8.0.png","9.0.png",
-                         "10.0.png","11.0.png","12.0.png","13.0.png","14.0.png","15.0.png","16.0.png","17.0.png","18.0.png",
-                         "19.0.png","20.0.png"]
-            pixmap = QPixmap(directory + '\\' + imagelist[imageNumber])
+            imageNumberStr = str(imageNumber)
+            if imageNumberStr == '0':
+                file = imageNumberStr + ".png"
+            else:
+                file = imageNumberStr + ".0.png"
+            pixmap = QPixmap(directory + '\\' + file)
         if not pixmap.isNull():
             pixmapResized = pixmap.scaled(800, 600, Qt.KeepAspectRatio)
             self.label.setPixmap(pixmapResized)
