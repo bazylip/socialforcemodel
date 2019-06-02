@@ -34,7 +34,7 @@ def simulate(testNum, repetition, images):
             print("Failed:", e, file=sys.stderr)
         command = runFile + ' tests/testimo8p200.yaml -s 2000 -t 83 -n ' + str(repetition) + ' -i ' + str(images)      
     elif testNum == 10:
-        command = runFile + ' tests/testimo10.yaml -s 200 -t 10 -n ' + str(repetition) + ' -i ' + str(images)
+        command = runFile + ' tests/testimo10.yaml -s 2000 -t 10 -n ' + str(repetition) + ' -i ' + str(images)
 
     try:
         retcode = call(command, shell=True)
@@ -66,6 +66,8 @@ def checkResults(testNum, repetition):
                     return False
                 previousTime = float(time)
         return True
+    elif testNum == 10:
+        return False
 
 class Tester:
     def __init__(self, testNum, numOfRepetitions, images):
