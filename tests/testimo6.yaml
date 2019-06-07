@@ -63,6 +63,7 @@ groups:
                 x: 3.25
                 y: 3.33
             - start:
+
                 x: 3.75
                 y: 3.33
             - start:
@@ -134,3 +135,4 @@ obstacles:
             y: 5.0
         -   x: 3.0
             y: 5.0
+

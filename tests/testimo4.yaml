@@ -1,6 +1,7 @@
 world_height: 9
 world_width: 12
 step_size: 0.05
+
 default_desired_velocity: 1.0
 default_maximum_velocity: 1.0
 groups:
@@ -326,7 +327,6 @@ groups:
             -   start:
                     x: 9.7
                     y: 6.7
-
 
 
 

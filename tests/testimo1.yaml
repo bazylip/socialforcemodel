@@ -37,6 +37,7 @@ groups:
                     y: 3.0
                 desired_velocity: 1.0
                 maximum_velocity: 1.000001                
+
 obstacles:
     -   points:
             -   x: 2.0

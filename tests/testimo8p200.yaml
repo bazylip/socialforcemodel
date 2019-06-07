@@ -12,6 +12,7 @@ groups:
                 y: 11.5
         target_area:
             start:
+
                 x: 30.0
                 y: 4.0
             end:

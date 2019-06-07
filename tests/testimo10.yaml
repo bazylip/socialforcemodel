@@ -322,7 +322,6 @@ groups:
                     x: 19.5
                     y: 11.5
 
-
 obstacles:
     -   points:
             -   x: 2.0

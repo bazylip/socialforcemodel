@@ -38,6 +38,7 @@ groups:
                 y: 7.0
             -   x: 30.0
                 y: 7.0
+
     -   num_pedestrians: 10
         spawn_area:
             start:
@@ -48,6 +49,7 @@ groups:
                 y: 11.5
         target_area:
             start:
+
                 x: 4.0
                 y: 4.0
             end:
